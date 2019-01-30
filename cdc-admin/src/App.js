@@ -1,22 +1,31 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './css/pure-min.css';
 import './css/side-menu.css';
+import $ from 'jquery';
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
-      lista: [
-        {
-          nome: 'nomezin',
-          email: 'email@gmail.com',
-          senha: '123456'
-        }
-      ]
+      lista: [{}]
     };
   }
+
+  componentDidMount() {
+    console.log('didMount');
+    $.ajax({
+      url: 'https://cdc-react.herokuapp.com/api/autores', //http://localhost:8080/api/autores',
+      dataType: 'json',
+      success: function (resposta) {
+        console.log('chegou a resposta');
+        this.setState({ lista: resposta });
+      }.bind(this)
+    })
+  }
+
   render() {
+    console.log('render');
+
     return (
       <div id="layout">
         <a href="#menu" id="menuLink" className="menu-link">

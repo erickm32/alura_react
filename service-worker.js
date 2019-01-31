@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/alura_react/precache-manifest.c899f430dbd22eca43b0002ad30bd0ee.js"
+  "/alura_react/precache-manifest.879aea5820abd10d844bc657d9116cef.js"
 );
 
 workbox.clientsClaim();

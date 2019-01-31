@@ -2,7 +2,7 @@
   "name": "cdc-admin",
   "version": "0.1.0",
   "private": true,
-  "homepage" : "http://myname.github.io/myapp",
+  "homepage": "https://erickm32.github.io/alura_react/",
   "dependencies": {
     "jquery": "^3.3.1",
     "pubsub-js": "^1.7.0",
@@ -15,7 +15,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "yarn build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -25,5 +27,8 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "devDependencies": {
+    "gh-pages": "^2.0.1"
+  }
 }

@@ -34,7 +34,7 @@ class FormularioLivro extends Component {
         var autorId = this.state.autorId;
 
         $.ajax({
-            url: 'http://localhost:8080/api/livros',
+            url: 'https://cdc-react.herokuapp.com/api/livros',
             contentType: 'application/json',
             dataType: 'json',
             type: 'POST',
@@ -118,7 +118,7 @@ export default class LivroAdmin extends Component {
 
     componentDidMount() {
         $.ajax({
-            url: "http://localhost:8080/api/livros",
+            url: "https://cdc-react.herokuapp.com/api/livros",
             dataType: 'json',
             success: function (data) {
                 this.setState({ lista: data });
@@ -126,7 +126,7 @@ export default class LivroAdmin extends Component {
         });
 
         $.ajax({
-            url: "http://localhost:8080/api/autores",
+            url: "https://cdc-react.herokuapp.com/api/autores",
             dataType: 'json',
             success: function (data) {
                 this.setState({ autores: data });

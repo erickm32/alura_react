@@ -1,31 +1,30 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 import { browserHistory } from 'react-router';
 
 export default class Login extends Component {
+
     constructor(props) {
         super(props);
-        this.state = {
-            msg: this.props.location.query.msg
-        };
+        this.state = { msg: this.props.location.query.msg };
     }
 
     envia(event) {
         event.preventDefault();
+
         const requestInfo = {
             method: 'POST',
-            body: JSON.stringify({
-                login: this.login.value,
-                senha: this.senha.value
-            }),
-            headers: new Headers({ 'Content-type': 'application/json' })
-        }
+            body: JSON.stringify({ login: this.login.value, senha: this.senha.value }),
+            headers: new Headers({
+                'Content-type': 'application/json'
+            })
+        };
 
         fetch('http://localhost:8080/api/public/login', requestInfo)
             .then(response => {
                 if (response.ok) {
                     return response.text();
                 } else {
-                    throw new Error('Não foi possível fazer o login');
+                    throw new Error('não foi possível fazer o login');
                 }
             })
             .then(token => {
@@ -34,7 +33,7 @@ export default class Login extends Component {
             })
             .catch(error => {
                 this.setState({ msg: error.message });
-            })
+            });
     }
 
     render() {
